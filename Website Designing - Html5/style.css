@@ -1,0 +1,109 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.contant{
+    width: 900px;
+    height: 750px;
+    margin-left: 25%;
+    background-color: rgba(36, 245, 245, 0.543);
+}
+
+.contant h3{
+    margin: 20px 50px;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(19, 18, 18, 0.201);
+    width: 810px;
+}
+.contant1{
+    width: 810px;
+    height: 130px;
+    margin-left: 50px;
+    padding: 1px;
+    background-color:rgba(255, 255, 255, 0.959);
+}
+
+p{
+    font-size: 20px;
+}
+
+.add{
+    font-size: 23px;
+    margin: 17px;
+}
+
+.add1{
+    display: flex;
+    justify-content:space-between ;
+    margin-inline: 17px;
+}
+
+.p-icon{
+    color: red;
+}
+.e-icon{
+    color:rgba(10, 216, 216, 0.858);
+}
+.loc-icon{
+    color: red;
+    margin-right: 70px;
+    font-size: 25px;
+}
+.contant2{
+    display: flex;
+    width: 810px;
+    height: 470px;
+    margin-left: 50px;
+    background-color: rgba(255, 255, 255, 0.959);
+    margin-top: 33px;
+    padding: 10px;
+}
+input{
+    padding: 7px ;
+    border: 0.5px solid rgba(0, 0, 0, 0.393);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 40px;
+}
+textarea{
+    font-size: 14px;
+    padding: 7px;
+    border: 0.5px solid rgba(0, 0, 0, 0.393);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.sub{
+    font-size: 15px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding:7px;
+    width: 90px;
+}
+.mep{
+    margin-left: 18px;
+    margin-top:10px ;
+}
+.fa-square-facebook{
+    font-size: 35px;
+    margin-right: 8px;
+    color: #316FF6;
+}
+.fa-square-twitter{
+    font-size: 35px;
+    margin-right: 8px;
+    color:#1DA1F2;
+}
+.fa-linkedin{
+    font-size: 35px;
+    margin-right: 8px;
+    color:#0077B5;
+}
+.fa-square-github{
+    font-size: 35px;
+    color: #000000;
+}
