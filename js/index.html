@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>add List </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .todo-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background-color: #e9ecef;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HTML Structure -->
+  <div class="todo-container">
+    <h2>My List</h2>
+    <input type="text" id="todoInput" placeholder="Enter a new todo" />
+    <button id="addBtn">Add </button>
+
+    <ul id="todoList"></ul>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Select necessary DOM elements
+    const todoInput = document.getElementById('todoInput');
+    const addBtn = document.getElementById('addBtn');
+    const todoList = document.getElementById('todoList');
+
+    // Event Listener to handle adding a new todo item
+    addBtn.addEventListener('click', () => {
+      const todoText = todoInput.value.trim(); // Get input value and trim spaces
+
+      if (todoText === "") {
+        alert("Please enter a todo item.");
+        return;
+      }
+
+      // Business Logic: Create a new <li> element
+      const newTodo = document.createElement('li');
+      newTodo.textContent = todoText;
+
+      // Append the new todo to the list
+      todoList.appendChild(newTodo);
+
+      // Clear input field after adding
+      todoInput.value = "";
+
+      // Store in cookies (finalized data)
+      saveTodoToCookies(todoText);
+    });
+
+    // Function to save todo in cookies
+    function saveTodoToCookies(todoItem) {
+      // Business Logic: Get existing cookie value
+      let currentTodos = getCookie("todos");
+
+      // If no existing todos, start a new array
+      let todoArray = currentTodos ? JSON.parse(currentTodos) : [];
+
+      // Add new item to array
+      todoArray.push(todoItem);
+
+      // Store updated array back into cookie (7-day expiry)
+      document.cookie = `todos=${JSON.stringify(todoArray)}; path=/; max-age=${7 * 24 * 60 * 60}`;
+    }
+
+    // Function to get a specific cookie value
+    function getCookie(name) {
+      const cookieArr = document.cookie.split(";");
+
+      for (let cookie of cookieArr) {
+        let [key, value] = cookie.trim().split("=");
+
+        if (key === name) {
+          return decodeURIComponent(value);
+        }
+      }
+      return null;
+    }
+
+    // On page load: Load todos from cookies
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTodos = getCookie("todos");
+
+      if (savedTodos) {
+        const todos = JSON.parse(savedTodos);
+        todos.forEach(todo => {
+          const li = document.createElement('li');
+          li.textContent = todo;
+          todoList.appendChild(li);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
