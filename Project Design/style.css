@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+.top-bar {
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo span {
+  color: #99cc33;
+}
+
+.top-menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.search-box input {
+  padding: 5px;
+}
+
+/* Menu */
+.main-nav ul {
+  display: flex;
+  background: #f2f2f2;
+  list-style: none;
+  padding: 10px 20px;
+}
+
+.main-nav li {
+  margin-right: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  background: #f90;
+  padding: 10px;
+  color: white;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+/* Featured Section */
+.featured {
+  display: flex;
+  background: orange;
+  color: white;
+  padding: 20px;
+}
+
+.services {
+  width: 30%;
+  background: darkred;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.featured-content {
+  flex: 1;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  padding: 20px;
+}
+
+.welcome-box {
+  width: 65%;
+  padding-right: 20px;
+}
+
+.projects-box {
+  width: 35%;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+.projects-box img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 20px;
+  font-size: 14px;
+}
